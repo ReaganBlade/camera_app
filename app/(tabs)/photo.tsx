@@ -27,13 +27,19 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <CameraView style={styles.camera} facing={facing}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-            <Text style={styles.text}>Flip Camera</Text>
-          </TouchableOpacity>
-        </View>
-      </CameraView>
+      <View style={{ flex: 1, flexDirection: 'column', paddingTop: 25, justifyContent: 'center' }}>
+        <Text style={{ color: 'white', textAlign: 'center' }}>Batch Name</Text>
+      </View>
+
+      <View style={styles.cameraWrapper}>
+        <CameraView style={styles.camera} facing={facing} />
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
+          <Text style={styles.text}>Flip Camera</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -42,24 +48,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    backgroundColor: 'pink',
   },
   message: {
     textAlign: 'center',
     paddingBottom: 10,
   },
+  cameraWrapper: {
+    flex: 12,
+    paddingHorizontal: 25,
+  },
   camera: {
     flex: 1,
+    borderRadius: 25,
+    overflow: 'hidden',
   },
   buttonContainer: {
     flex: 1,
     flexDirection: 'row',
     backgroundColor: 'transparent',
-    margin: 64,
+    padding: 25,
   },
   button: {
     flex: 1,
-    alignSelf: 'flex-end',
     alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'blue',
+    marginHorizontal: 50,
+    borderRadius: 10
   },
   text: {
     fontSize: 24,
